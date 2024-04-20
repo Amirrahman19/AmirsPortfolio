@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+
+    <link rel="apple-touch-icon" type="image/png" href="https://cpwebassets.codepen.io/assets/favicon/apple-touch-icon-5ae1a0698dcc2402e9712f7d01ed509a57814f994c660df9f7a952f3060705ee.png" />
+
+    <meta name="apple-mobile-web-app-title" content="CodePen">
+
+    <link rel="shortcut icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/favicon-aec34940fbc1a6e787974dcd360f2c6b63348d4b1f4e06c77743096d55480f33.ico" />
+
+    <link rel="mask-icon" type="image/x-icon" href="https://cpwebassets.codepen.io/assets/favicon/logo-pin-b4b4269c16397ad2f0f7a01bcdf513a1994f4c94b8af2f191c09eb0d601762b1.svg" color="#111" />
+
+
+
+
+    <title>CodePen - Flexbox Fun 1</title>
+    <link rel="canonical" href="https://codepen.io/alexjhill/pen/wJBYYY" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+
+
+    <style>
+        @font-face {
+            font-family: Andale Mono;
+            src: url('../fonts/andale_mono.ttf');
+        }
+        
+        h1 {
+            font-family: Andale Mono, Helvetica, Arial;
+        }
+        
+        #header {
+            position: relative;
+            float: left;
+            width: 100%;
+            height: 500px;
+            background: #23ba92;
+        }
+        
+        #heading {
+            position: absolute;
+            bottom: 0;
+            font-size: 25px;
+            line-height: 100%;
+            padding-left: 20px;
+            margin: 22.5px 0;
+            font-weight: 200;
+            color: #fff;
+        }
+        
+        #fixed-header {
+            position: relative;
+            float: left;
+            background: #23ba92;
+            width: 100%;
+            height: 70px;
+            margin-top: -70px;
+        }
+        
+        #fixed-header.scrolled {
+            position: fixed;
+            margin-top: 0;
+            box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.2);
+        }
+        
+        #wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: flex-start;
+            box-sizing: border-box;
+            width: 100%;
+            background: #fdfdfd00;
+            padding: 10px;
+        }
+        
+        .card {
+            background: #fff;
+            box-shadow: 0 2px 4px 1px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            width: 250px;
+            flex-grow: 4;
+            margin: 10px;
+        }
+        
+        .card img {
+            width: 100%;
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .card p {
+            padding: 0 20px 10px 20px;
+        }
+        
+        body {
+            background-color: #ffffff00;
+        }
+    </style>
+
+    <script>
+        window.console = window.console || function(t) {};
+    </script>
+
+
+
+</head>
+
+<body translate="no">
+
+
+    <div id="wrapper">
+        <div class="card">
+            <img src="https://www.sp.edu.sg/images/default-source/ymac/aboutsre/ymac_colour2_resized.png?size=600" alt="">
+            <p> 
+                <a href="https://drive.google.com/file/d/1EONZBngjc-X5yi7AFAYRDMHoiFhC-uG3/view" target="_blank">Best Delegate@Youth Model ASEAN Conference (YMAC) 2022</a>
+            </p>
+           
+        </div>
+        <div class="card">
+            <img src="https://imgs.search.brave.com/5dYx1Xh2Rtl8HTHwczLswkwibCQjNhjP-VmAR1QuHDM/rs:fit:687:225:1/g:ce/aHR0cHM6Ly90c2Uz/Lm1tLmJpbmcubmV0/L3RoP2lkPU9JUC5q/WFFhSlExamY2M0tt/SFZVY2pYdDFBSGFG/SCZwaWQ9QXBp" alt="">
+            <p>
+                <a href="https://drive.google.com/drive/folders/1aVmwMbrD71sDLjDquS9QPGD6tE4Ib8VG?usp=sharing" target="_blank">Awards and Achievements</a>
+            </p>
+        </div>
+        <div class="card">
+            <img src="img/Edusave Good Progress Award 2023.jpg" alt="">
+            <p>Edusave Good Progress Award 2023</p>
+        </div>
+        <div class="card">
+            <img src="img/Edusave scholarship.jpeg" alt="">
+            <p>Edusave Scholarship 2018</p>
+        </div>
+        <div class="card">
+            <img src="img/Edusave Award.jpeg" alt="">
+            <p>Edusave Award 2017</p>
+        </div>
+        <div class="card">
+            <img src="img/Certificate of Appreciation - SPAI President.JPG" alt="">
+            <p>Certificate of Appreciation - SPAI President</p>
+        </div>
+        <!-- <div class="card">
+            <img src="img/Certificate of Appreciation - UPTLC Alumni.jpg" alt="">
+            <p>Certificate of Appreciation - UPTLC Alumni</p>
+        </div> -->
+        <!-- <div class="card">
+            <img src="img/adss_njrc.JPG" alt="">
+            <p>NJRC: Certificate of Participation</p>
+        </div>
+        <div class="card">
+            <img src="img/adss_silver.JPG" alt="">
+            <p>STEM inc Young Engineer (Silver)</p>
+        </div>
+        <div class="card">
+            <img src="img/adss_stem.JPG" alt="">
+            <p>Youth Innovation Challenge: Certificate of Participation</p>
+        </div>
+
+        <div class="card">
+            <img src="img/ite_7habits.JPG" alt="">
+            <p>ITE 7 Habits of Effective Youths: Certificate of Completion</p>
+        </div>
+        <div class="card">
+            <img src="img/ite_achievement.JPG" alt="">
+            <p>Edusave Certificate of Academic 2019</p>
+        </div>
+        <div class="card">
+            <img src="img/itecertnational.jpg" alt="">
+            <p>LBKM Academic Excellence Award 2020: Outstanding Performance during first year</p>
+        </div>
+        <div class="card">
+            <img src="img/unascert.JPG" alt="">
+            <p>UNAS 2017: Certificate of Participation</p>
+        </div>
+        <div class="card">
+            <img src="img/ite-dlist.jpeg" alt="">
+            <p>Director's List for Academic Year 2019</p>
+        </div> -->
+
+
+
+    </div>
+
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+    <script id="rendered-js">
+        $(window).on("load scroll", function() {
+            var fromTopPx = 430; // distance to trigger
+            var yPos = $(window).scrollTop();
+
+            var fontSize = 25;
+
+            var a = fontSize + (430 - yPos) * 0.08;
+
+            if (yPos < fromTopPx) {
+                $('#fixed-header').removeClass('scrolled');
+                $('#heading').css("font-size", a);
+            } else {
+                $('#fixed-header').addClass('scrolled');
+                $('#heading').css("font-size", fontSize);
+            }
+        });
+        //# sourceURL=pen.js
+    </script>
+
+
+</body>
+
+</html>
