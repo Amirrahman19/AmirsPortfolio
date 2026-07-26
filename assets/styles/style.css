@@ -2445,6 +2445,55 @@ button:focus {
   height: 40px;
 }
 
+.skip-link {
+  background: #304cfd;
+  color: #fff;
+  left: 1rem;
+  padding: .75rem 1rem;
+  position: fixed;
+  top: 1rem;
+  transform: translateY(-200%);
+  z-index: 1200;
+}
+
+.skip-link:focus {
+  color: #fff;
+  transform: translateY(0);
+}
+
+a:focus-visible,
+button:focus-visible,
+[role="tab"]:focus-visible {
+  outline: 3px solid #ff965d;
+  outline-offset: 3px;
+}
+
+.content-frame {
+  background: transparent;
+  border: 0;
+  display: block;
+  width: 100%;
+}
+
+.awards-frame {
+  height: 2700px;
+}
+
+.graph-frame {
+  height: 800px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+  }
+}
+
 @media only screen and (max-width: 580px) {
   .toggle-btn {
     height: 25px;

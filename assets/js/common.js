@@ -33,42 +33,6 @@ $(document).ready(function() {
         }
     });
     
-    $('body, .js-img-load').imagesLoaded({ background: !0 }).always( function( instance ) {
-	    preloader(); //Init preloader
-    });
-
-    function preloader() {
-        var tl = anime.timeline({}); 
-        tl
-        .add({
-            targets: '.preloader',
-            duration: 1,
-            opacity: 1
-        })
-        .add({
-            targets: '.circle-pulse',
-            duration: 300,
-            //delay: 500,
-            opacity: 1,
-            zIndex: '-1',
-            easing: 'easeInOutQuart'
-        },'+=500')
-        .add({
-            targets: '.preloader__progress span',
-            duration: 500,
-            width: '100%',
-			easing: 'easeInOutQuart'
-        },'-=500')
-        .add({
-            targets: '.preloader',
-            duration: 500,
-            opacity: 0,
-            zIndex: '-1',
-            easing: 'easeInOutQuart'
-        });
-    };
-
-
     /*-----------------------------------------------------------------
       Carousel
     -------------------------------------------------------------------*/	
@@ -300,7 +264,9 @@ $(document).ready(function() {
         $('.content .tabcontent:first').show();
         $('.nav__item a').on('click', function () {
             $('.nav__item a').removeClass('active');
+            $('.nav__item a').attr('aria-selected', 'false');
             $(this).addClass('active');
+            $(this).attr('aria-selected', 'true');
             var currentTab = $(this).attr('href');
             $('.content .tabcontent').hide();            
             $(currentTab).show();
@@ -312,11 +278,23 @@ $(document).ready(function() {
 			$('.js-scroll').getNiceScroll().resize()
             return false;
         });
+
+        $('.nav__item a').on('keydown', function (event) {
+            if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+            event.preventDefault();
+            var tabs = $('.nav__item a[role="tab"]');
+            var index = tabs.index(this);
+            if (event.key === 'Home') index = 0;
+            if (event.key === 'End') index = tabs.length - 1;
+            if (event.key === 'ArrowLeft') index = (index - 1 + tabs.length) % tabs.length;
+            if (event.key === 'ArrowRight') index = (index + 1) % tabs.length;
+            tabs.eq(index).focus().trigger('click');
+        });
 	    
 		// Mobile close menu
 	    var screenMobile = 580;
 	
-	    windowWidth = $(window).width();
+	    var windowWidth = $(window).width();
         if ((windowWidth < screenMobile)) {	
 			// autoscroll to content
             $(".nav__item a").click(function(e) {
@@ -684,60 +662,4 @@ $(document).ready(function() {
     // execute above function
     initPhotoSwipeFromDOM('.photoswiper');
 	
-    /*-----------------------------------------------------------------
-      Contacts form
-    -------------------------------------------------------------------*/
-
-    $("#contact-form").validator().on("submit", function (event) {
-        if (event.isDefaultPrevented()) {
-            formError();
-            submitMSG(false, "Please fill in the form...");
-        } else {
-            event.preventDefault();
-            submitForm();
-        }
-    });
-
-    function submitForm(){
-        var name = $("#nameContact").val(),
-            email = $("#emailContact").val(),
-            message = $("#messageContact").val();
-			
-        var url = "https://aapbd.com/api/contact-with-nayeem";
-		
-        $.ajax({
-            type: "POST",
-            url: url,
-            data: "name=" + name + "&email=" + email + "&message=" + message,
-            success : function(data){
-                if (data.status == "success"){
-                    formSuccess();
-                } else {
-                    formError();
-                    submitMSG(false,data.message);
-                }
-            }
-        });
-    }
-
-    function formSuccess(){
-        $("#contact-form")[0].reset();
-        submitMSG(true, "Thanks! Your message has been sent.");
-    }
-  
-    function formError(){
-        $("#contactForm").removeClass().addClass('shake animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
-            $(this).removeClass();
-        });
-    }  
-  
-    function submitMSG(valid, msg){
-		var msgClasses;
-        if(valid){
-            msgClasses = "validation-success";
-        } else {
-           msgClasses = "validation-danger";
-        }
-        $("#validator-contact").removeClass().addClass(msgClasses).text(msg);
-    }
 });

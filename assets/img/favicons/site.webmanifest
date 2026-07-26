@@ -1,14 +1,14 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "Amir Rahman Portfolio",
+    "short_name": "Amir Rahman",
     "icons": [
         {
-            "src": "/android-chrome-144x144.png",
+            "src": "android-chrome-144x144.png",
             "sizes": "144x144",
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
+    "theme_color": "#304cfd",
     "background_color": "#ffffff",
     "display": "standalone"
 }
